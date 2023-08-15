@@ -7,12 +7,51 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/MainActivityMyTasksTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/My_Tasks"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/MainActivityImageGridImageView"
+        android:layout_width="281dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="76dp"
+        android:contentDescription="@string/My_Tasks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityMyTasksTextView"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:ignore="ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/MainActivityAddTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/Add_Task"
+        android:textSize="14sp"
+        app:cornerRadius="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityImageGridImageView" />
+
+    <Button
+        android:id="@+id/MainActivityAllTasksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="76dp"
+        android:text="@string/All_Tasks"
+        app:cornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityImageGridImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
