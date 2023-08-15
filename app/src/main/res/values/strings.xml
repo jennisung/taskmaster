@@ -3,5 +3,15 @@
     <string name="My_Tasks">My Tasks</string>
     <string name="Add_Task">Add Task</string>
     <string name="All_Tasks">All Tasks</string>
+    <string name="Add_Tasks_Heading">Add Tasks</string>
+    <string name="Task_Title_Text">Task Title</string>
+    <string name="TaskTitleInputForm">My Task</string>
+    <string name="TaskDescriptionTextt">Task Description</string>
+    <string name="AddTasksTaskDescriptionTitle">Task Description\n</string>
+    <string name="AddTasksTaskDescriptionInputForm">Do Something</string>
+    <string name="AddTasksButton">ADD TASK</string>
+    <string name="AddTaskDoSomethingTextForInput" />
+    <string name="Do_Something_text">Do Something</string>
+    <string name="AddTasksDescriptionFormText">Do Something</string>
 
 </resources>
