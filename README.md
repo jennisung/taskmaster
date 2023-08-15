@@ -11,3 +11,5 @@ On the “Add a Task” page, allow users to type in details about a new task, s
 The all tasks page should just be an image with a back button; it needs no functionality.
 
 ### Documentation
+![My Tasks Main Page](screenshots/My_Task_FrontPage.png)
+
