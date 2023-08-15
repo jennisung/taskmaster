@@ -13,3 +13,6 @@ The all tasks page should just be an image with a back button; it needs no funct
 ### Documentation
 ![My Tasks Main Page](screenshots/My_Task_FrontPage.png)
 
+![Add Task Page](screenshots/AddTasks.png)
+
+![All Task Page](screenshots/AllTasks.png)
