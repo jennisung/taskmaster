@@ -16,6 +16,15 @@
     <string name="AllTaskHeadingText">All Tasks</string>
     <string name="AllTaskImage">Add Task Image</string>
     <string name="AddTasksActivitySubmitTextView">Submitted!</string>
-    <string name="AddTasksTotalTasks">Totak Tasks:0</string>
+    <string name="AddTasksTotalTasks">Total Tasks:0</string>
+    <string name="SettingsHeading">Settings</string>
+    <string name="SettingsUserNameInputText">Enter Username</string>
+    <string name="SettingsAddButton">Save</string>
+    <string name="TaskDetailPageHeading">Task Detail</string>
+    <string name="textview">TextView</string>
+    <string name="TaskDetailPageText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "</string>
+    <string name="ButtonTask1">Task One</string>
+    <string name="ButtonTask2">Task Two</string>
+    <string name="ButtonTask3">Task Three</string>
 
 </resources>
