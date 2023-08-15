@@ -17,41 +17,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/MainActivityImageGridImageView"
-        android:layout_width="281dp"
-        android:layout_height="282dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="76dp"
-        android:contentDescription="@string/My_Tasks"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityMyTasksTextView"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="ImageContrastCheck" />
+<!--    <ImageView-->
+<!--        android:id="@+id/MainActivityImageGridImageView"-->
+<!--        android:layout_width="281dp"-->
+<!--        android:layout_height="282dp"-->
+<!--        android:layout_marginStart="76dp"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:layout_marginEnd="76dp"-->
+<!--        android:contentDescription="@string/My_Tasks"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/MainActivityMyTasksTextView"-->
+<!--        app:srcCompat="@drawable/ic_launcher_background"-->
+<!--        tools:ignore="ImageContrastCheck" />-->
+    <Button
+        android:id="@+id/buttonTask1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/ButtonTask1"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/MainActivityMyTasksTextView"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityMyTasksTextView" />
+
+    <Button
+        android:id="@+id/buttonTask2"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/ButtonTask2"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/buttonTask1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTask1" />
+
+    <Button
+        android:id="@+id/buttonTask3"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/ButtonTask3"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/buttonTask2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTask2" />
+
 
     <Button
         android:id="@+id/MainActivityAddTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="58dp"
         android:text="@string/Add_Task"
         android:textSize="14sp"
         app:cornerRadius="7dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityImageGridImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonTask3" />
 
     <Button
         android:id="@+id/MainActivityAllTasksButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="64dp"
         android:text="@string/All_Tasks"
         app:cornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivityImageGridImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonTask3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
