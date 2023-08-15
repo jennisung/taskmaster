@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddTasksActivity">
+
+    <TextView
+        android:id="@+id/AddTasksHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/Add_Tasks_Heading"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/AddTasksInputFieldForTaskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="@string/TaskTitleInputForm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksAddTaskTitleText"
+        tools:ignore="LabelFor"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/AddTasksTaskDescriptionInputForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/AddTasksDescriptionFormText"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:text="@string/AddTaskDoSomethingTextForInput"
+        android:textColorHint="#A1887F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksTaskDescriptionTitle"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/AddTasksAddTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/AddTasksButton"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksTaskDescriptionInputForm" />
+
+    <TextView
+        android:id="@+id/AddTasksAddTaskTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/Task_Title_Text"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksHeading" />
+
+    <TextView
+        android:id="@+id/AddTasksTaskDescriptionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/AddTasksTaskDescriptionTitle"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksInputFieldForTaskTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>
