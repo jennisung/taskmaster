@@ -7,18 +7,27 @@
     tools:context=".activities.AllTasksActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/AllTasksHeadingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="131dp" />
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/AllTaskHeadingText"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="285dp"
-        android:layout_height="342dp"
+        android:id="@+id/AllTaskImage"
+        android:layout_width="266dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="82dp"
+        android:contentDescription="@string/AllTaskImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AllTasksHeadingText"
         app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="210dp" />
+        tools:ignore="ImageContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
