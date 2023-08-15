@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">taskmaster</string>
+    <string name="My_Tasks">My Tasks</string>
+    <string name="Add_Task">Add Task</string>
+    <string name="All_Tasks">All Tasks</string>
+
 </resources>
