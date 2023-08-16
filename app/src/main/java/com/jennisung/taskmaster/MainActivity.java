@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.jennisung.taskmaster.activities.AddTasksActivity;
 import com.jennisung.taskmaster.activities.AllTasksActivity;
+import com.jennisung.taskmaster.activities.SettingsActivity;
 import com.jennisung.taskmaster.activities.TaskDetailActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,19 +23,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupTaskButtons();
 
-        // add task button
+        //go to add task page button
         Button goToAddTaskPageButton = findViewById(R.id.MainActivityAddTaskButton);
         goToAddTaskPageButton.setOnClickListener(v -> {
             Intent addTasksFormIntent = new Intent(MainActivity.this, AddTasksActivity.class);
             startActivity(addTasksFormIntent);
         });
 
-        // all task button
+        // go to all task page button
         Button goToAllTasksPageButton = findViewById(R.id.MainActivityAllTasksButton);
         goToAllTasksPageButton.setOnClickListener(v -> {
             Intent allTasksFormIntent = new Intent(MainActivity.this, AllTasksActivity.class);
             startActivity(allTasksFormIntent);
         });
+
+        // go to settings page button
+        ImageButton settingsButton = findViewById(R.id.MainActivitySettingsButton);
+        settingsButton.setOnClickListener(v -> {
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(settingsIntent);
+        });
+
+
     }
 
     public void setupTaskButtons() {
@@ -51,5 +62,8 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(MainActivity.USER_INPUT_EXTRA_TAG, button.getText().toString());
             startActivity(intent);
         });
+
+
+
     }
 }

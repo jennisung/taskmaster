@@ -31,7 +31,7 @@ The homepage should also contain a button to visit the Settings page, and once t
 
 ### Documentation
 
-![Main Page with three Task Button](screenshots/mainpagewiththreetaskbutton.png)
+![Main Page with three Task Button](screenshots/mainpage.png)
 
 ![Task 1](screenshots/task1.png)
 
