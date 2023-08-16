@@ -43,6 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
             preferenceEditor.apply();
 
             Log.d("SettingsActivity", "Save button clicked");
+            Log.d("SettingsActivity", "Username saved: " + usernameString);
 
             Toast.makeText(getApplicationContext(), "Settings saved!", Toast.LENGTH_SHORT).show();
         });
