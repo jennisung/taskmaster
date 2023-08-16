@@ -26,5 +26,6 @@
     <string name="ButtonTask1">Task One</string>
     <string name="ButtonTask2">Task Two</string>
     <string name="ButtonTask3">Task Three</string>
+    <string name="todo">TODO</string>
 
 </resources>
