@@ -42,3 +42,6 @@ The homepage should also contain a button to visit the Settings page, and once t
 ![Settings Page](screenshots/settingspage.png)
 
 ![Settings Page for Username](screenshots/usernametask.png)
+
+
+
