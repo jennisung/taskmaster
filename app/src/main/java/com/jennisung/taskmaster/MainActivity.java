@@ -1,10 +1,12 @@
 package com.jennisung.taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,10 +20,14 @@ public class MainActivity extends AppCompatActivity {
     public static final String USER_INPUT_EXTRA_TAG = "taskName";
     SharedPreferences preferences;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         setupTaskButtons();
 
         //go to add task page button
@@ -72,9 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
         String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
 
+        Log.d("MainActivity", "Username retrieved: " + username);
+
         if (!username.isEmpty()) {
             String myTasksTitleTextView = username + "'s Tasks";
             ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
         }
     }
+
+
 }
