@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.jennisung.taskmaster.activities.AddTasksActivity;
 import com.jennisung.taskmaster.activities.AllTasksActivity;
@@ -44,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(settingsIntent);
         });
 
-
     }
+
+
 
     public void setupTaskButtons() {
         Button taskOneButton = findViewById(R.id.buttonTask1);
@@ -63,7 +65,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
 
+        if (!username.isEmpty()) {
+            String myTasksTitleTextView = username + "'s Tasks";
+            ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
+        }
     }
 }
