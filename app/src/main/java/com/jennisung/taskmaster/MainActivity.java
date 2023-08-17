@@ -1,5 +1,7 @@
 package com.jennisung.taskmaster;
 
+import com.jennisung.taskmaster.models.Task;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,9 +21,15 @@ import com.jennisung.taskmaster.activities.SettingsActivity;
 import com.jennisung.taskmaster.activities.TaskDetailActivity;
 import com.jennisung.taskmaster.adapter.TaskRecyclerViewAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     public static final String USER_INPUT_EXTRA_TAG = "taskName";
+    public static final String TASK_NAME_EXTRA_TAG = "taskName";
     private SharedPreferences preferences;
+
+    List<Task> tasks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setupRecyclerView();
+
 //        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
+        createTaskListInstance();
+        setupRecyclerView(tasks);
 
     }
 
@@ -43,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
 //        setupTaskButton(R.id.buttonTask2);
 //        setupTaskButton(R.id.buttonTask3);
 //    }
+
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setupUsernameTasksTitle();
+    }
+
 
     void setupTaskButton(int buttonId) {
         Button taskButton = findViewById(buttonId);
@@ -70,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-     void setupSettingsPageButton() {
+    void setupSettingsPageButton() {
         ImageButton settingsButton = findViewById(R.id.MainActivitySettingsButton);
         settingsButton.setOnClickListener(v -> {
             Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -78,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void setupRecyclerView(){
+    void setupRecyclerView(List<Task> tasks){
         // TODO: Step 1-2 Grab the recyclerview
         RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
 
@@ -88,16 +109,14 @@ public class MainActivity extends AppCompatActivity {
         taskRecyclerView.setLayoutManager(taskLayoutManager);
 
         // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
-        TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
+        // TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
+        //TODO: step 2-3 hand data items from main activity to our recyclerview adapter
+//        TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(taskList, this);
+
+        //TODO step 3-2 hand in activity context to the adapter
+        TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(tasks, this);
+
         taskRecyclerView.setAdapter(adapter);
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        setupUsernameTasksTitle();
     }
 
     private void setupUsernameTasksTitle() {
@@ -110,97 +129,14 @@ public class MainActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
         }
     }
+
+    void createTaskListInstance() {
+        tasks.add(new Task("Task One", "Something I need to do today", Task.TaskStatus.COMPLETE));
+        tasks.add(new Task("Task Two", "Something I need to do today", Task.TaskStatus.NEW));
+        tasks.add(new Task("Task Three", "Something I need to do today", Task.TaskStatus.NEW));
+        tasks.add(new Task("Task Four", "Something I need to do today", Task.TaskStatus.NEW));
+        tasks.add(new Task("Task Five", "Something I need to do today", Task.TaskStatus.NEW));
+    }
+
 }
 
-
-//package com.jennisung.taskmaster;
-//
-
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.preference.PreferenceManager;
-//
-//import android.content.Intent;
-//import android.content.SharedPreferences;
-//import android.os.Bundle;
-//import android.util.Log;
-//import android.widget.Button;
-//import android.widget.ImageButton;
-//import android.widget.TextView;
-//
-//import com.jennisung.taskmaster.activities.AddTasksActivity;
-//import com.jennisung.taskmaster.activities.AllTasksActivity;
-//import com.jennisung.taskmaster.activities.SettingsActivity;
-//import com.jennisung.taskmaster.activities.TaskDetailActivity;
-//
-//public class MainActivity extends AppCompatActivity {
-//    public static final String USER_INPUT_EXTRA_TAG = "taskName";
-//    SharedPreferences preferences;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//
-//        setupTaskButtons();
-//
-//        //go to add task page button
-//        Button goToAddTaskPageButton = findViewById(R.id.MainActivityAddTaskButton);
-//        goToAddTaskPageButton.setOnClickListener(v -> {
-//            Intent addTasksFormIntent = new Intent(MainActivity.this, AddTasksActivity.class);
-//            startActivity(addTasksFormIntent);
-//        });
-//
-//        // go to all task page button
-//        Button goToAllTasksPageButton = findViewById(R.id.MainActivityAllTasksButton);
-//        goToAllTasksPageButton.setOnClickListener(v -> {
-//            Intent allTasksFormIntent = new Intent(MainActivity.this, AllTasksActivity.class);
-//            startActivity(allTasksFormIntent);
-//        });
-//
-//        // go to settings page button
-//        ImageButton settingsButton = findViewById(R.id.MainActivitySettingsButton);
-//        settingsButton.setOnClickListener(v -> {
-//            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-//            startActivity(settingsIntent);
-//        });
-//
-//    }
-//
-//
-//
-//    public void setupTaskButtons() {
-//        Button taskOneButton = findViewById(R.id.buttonTask1);
-//        setTaskButtonClickListener(taskOneButton);
-//        Button taskTwoButton = findViewById(R.id.buttonTask2);
-//        setTaskButtonClickListener(taskTwoButton);
-//        Button taskThreeButton = findViewById(R.id.buttonTask3);
-//        setTaskButtonClickListener(taskThreeButton);
-//    }
-//
-//    private void setTaskButtonClickListener(Button button) {
-//        button.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, TaskDetailActivity.class);
-//            intent.putExtra(MainActivity.USER_INPUT_EXTRA_TAG, button.getText().toString());
-//            startActivity(intent);
-//        });
-//
-//    }
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
-//
-//        Log.d("MainActivity", "Username retrieved: " + username);
-//
-//        if (!username.isEmpty()) {
-//            String myTasksTitleTextView = username + "'s Tasks";
-//            ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
-//        }
-//    }
-//
-//
-//}
