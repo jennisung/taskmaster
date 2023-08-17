@@ -2,6 +2,8 @@ package com.jennisung.taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +17,7 @@ import com.jennisung.taskmaster.activities.AddTasksActivity;
 import com.jennisung.taskmaster.activities.AllTasksActivity;
 import com.jennisung.taskmaster.activities.SettingsActivity;
 import com.jennisung.taskmaster.activities.TaskDetailActivity;
+import com.jennisung.taskmaster.adapter.TaskRecyclerViewAdapter;
 
 public class MainActivity extends AppCompatActivity {
     public static final String USER_INPUT_EXTRA_TAG = "taskName";
@@ -27,17 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setupTaskButtons();
+        setupRecyclerView();
+//        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
     }
 
-    void setupTaskButtons() {
-        setupTaskButton(R.id.buttonTask1);
-        setupTaskButton(R.id.buttonTask2);
-        setupTaskButton(R.id.buttonTask3);
-    }
+//    void setupTaskButtons() {
+//        setupTaskButton(R.id.buttonTask1);
+//        setupTaskButton(R.id.buttonTask2);
+//        setupTaskButton(R.id.buttonTask3);
+//    }
 
     void setupTaskButton(int buttonId) {
         Button taskButton = findViewById(buttonId);
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
      void setupSettingsPageButton() {
         ImageButton settingsButton = findViewById(R.id.MainActivitySettingsButton);
         settingsButton.setOnClickListener(v -> {
@@ -71,6 +76,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(settingsIntent);
         });
     }
+
+    void setupRecyclerView(){
+        // TODO: Step 1-2 Grab the recyclerview
+        RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
+
+
+        // TODO: Step 1-3 set the layoutmanager for the recycler view to the linear layout
+        RecyclerView.LayoutManager taskLayoutManager = new LinearLayoutManager(this);
+        taskRecyclerView.setLayoutManager(taskLayoutManager);
+
+        // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
+        TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
+        taskRecyclerView.setAdapter(adapter);
+    }
+
 
     @Override
     protected void onResume() {

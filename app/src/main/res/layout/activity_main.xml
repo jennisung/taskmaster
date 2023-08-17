@@ -54,16 +54,6 @@
         android:layout_marginTop="108dp"
         android:visibility="visible" />
 
-    <Button
-        android:id="@+id/buttonTask1"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/ButtonTask1"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="@+id/usernameTasksTextView"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTasksTextView" />
-
 <!--    <Button-->
 <!--        android:id="@+id/buttonTask1"-->
 <!--        android:layout_width="280dp"-->
@@ -71,28 +61,29 @@
 <!--        android:layout_marginTop="16dp"-->
 <!--        android:text="@string/ButtonTask1"-->
 <!--        app:cornerRadius="8dp"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/MainActivityMyTasksTextView"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/MainActivityMyTasksTextView" />-->
+<!--        app:layout_constraintStart_toStartOf="@+id/usernameTasksTextView"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/usernameTasksTextView" />-->
+<!--    -->
 
-    <Button
-        android:id="@+id/buttonTask2"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/ButtonTask2"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="@+id/buttonTask1"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTask1" />
+<!--    <Button-->
+<!--        android:id="@+id/buttonTask2"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="@string/ButtonTask2"-->
+<!--        app:cornerRadius="8dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/buttonTask1"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonTask1" />-->
 
-    <Button
-        android:id="@+id/buttonTask3"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/ButtonTask3"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="@+id/buttonTask2"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTask2" />
+<!--    <Button-->
+<!--        android:id="@+id/buttonTask3"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="@string/ButtonTask3"-->
+<!--        app:cornerRadius="8dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/buttonTask2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonTask2" />-->
 
 
     <Button
@@ -100,23 +91,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="24dp"
         android:text="@string/Add_Task"
         android:textSize="14sp"
         app:cornerRadius="7dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTask3" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityTaskRecyclerView" />
 
     <Button
         android:id="@+id/MainActivityAllTasksButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
         android:text="@string/All_Tasks"
         app:cornerRadius="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTask3" />
+        app:layout_constraintTop_toBottomOf="@+id/MainActivityTaskRecyclerView" />
 
     <ImageButton
         android:id="@+id/MainActivitySettingsButton"
@@ -129,6 +120,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_preferences"
         tools:ignore="ImageContrastCheck" />
+
+<!--    TODO: step 1-1-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/MainActivityTaskRecyclerView"
+        android:layout_width="360dp"
+        android:layout_height="440dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainActivitySettingsButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
