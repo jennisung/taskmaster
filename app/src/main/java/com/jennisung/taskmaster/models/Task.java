@@ -4,10 +4,14 @@ package com.jennisung.taskmaster.models;
 //A Task should have a title, a body, and a state.
 
 
-public class TaskModel {
+public class Task {
     String title;
     String body;
     TaskStatus status;
+
+//    public Task(String task_one, String task_five, String body) {
+//    }
+
 
     //The state should be one of “new”, “assigned”, “in progress”, or “complete”.
     public enum TaskStatus {
@@ -17,7 +21,7 @@ public class TaskModel {
         COMPLETE,
     }
 
-    public TaskModel(String title, String body, TaskStatus status) {
+    public Task(String title, String body, TaskStatus status) {
         this.title = title;
         this.body = body;
         this.status = status;
