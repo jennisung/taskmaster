@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
+
     }
 
 //    void setupTaskButtons() {
