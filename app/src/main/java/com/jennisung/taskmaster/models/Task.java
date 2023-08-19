@@ -1,29 +1,26 @@
 package com.jennisung.taskmaster.models;
 
 //TODO 2-1: create a data class
-//A Task should have a title, a body, and a state.
 
+import java.util.Date;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Task {
+
+    @PrimaryKey(autoGenerate = true)
+    public long id;
     String title;
     String body;
-    TaskStatus status;
 
-//    public Task(String task_one, String task_five, String body) {
-//    }
+    java.util.Date dateCreated;
+    TaskStatusEnum status;
 
-
-    //The state should be one of “new”, “assigned”, “in progress”, or “complete”.
-    public enum TaskStatus {
-        NEW,
-        ASSIGNED,
-        IN_PROGRESS,
-        COMPLETE,
-    }
-
-    public Task(String title, String body, TaskStatus status) {
+    public Task(String title, String body, java.util.Date dateCreated, TaskStatusEnum status) {
         this.title = title;
         this.body = body;
+        this.dateCreated = dateCreated;
         this.status = status;
     }
 
@@ -43,11 +40,19 @@ public class Task {
         this.body = body;
     }
 
-    public TaskStatus getStatus() {
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public TaskStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(TaskStatusEnum status) {
         this.status = status;
     }
 }

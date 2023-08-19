@@ -1,5 +1,23 @@
 # taskmaster
 
+# Current Lab.....
+## Lab29
+* Task Model and Room: Following the directions provided in the Android documentation, set up Room in your application, and modify your Task class to be an Entity.
+* Add Task Form: Modify your Add Task form to save the data entered in as a Task in your local database.
+* Homepage: Refactor your homepage’s RecyclerView to display all Task entities in your database.
+* Detail Page: Ensure that the description and status of a tapped task are also displayed on the detail page, in addition to the title. (Note that you can accomplish this by passing along the entire Task entity, or by passing along only its ID in the intent.)
+
+### Documentation
+![Add Task](screenshots/lab29.png)
+
+![All Task ](screenshots/lab29-2.png)
+
+
+
+
+
+
+# Previous Lab
 ## Lab26
 ### Homepage
 The main page should be built out to match the wireframe. In particular, it should have a heading at the top of the page, an image to mock the “my tasks” view, and buttons at the bottom of the page to allow going to the “add tasks” and “all tasks” page.
