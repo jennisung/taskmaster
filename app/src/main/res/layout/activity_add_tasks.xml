@@ -50,7 +50,9 @@
         android:text="@string/AddTaskDoSomethingTextForInput"
         android:textColorHint="#8D6E63"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTasksTaskDescriptionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/AddTasksTaskDescriptionTitle"
+        android:imeOptions="actionDone"
+        />
 
     <Button
         android:id="@+id/AddTasksAddTaskButton"
