@@ -1,18 +1,18 @@
 # taskmaster
 
 # Current Lab.....
-## Lab29
-* Task Model and Room: Following the directions provided in the Android documentation, set up Room in your application, and modify your Task class to be an Entity.
-* Add Task Form: Modify your Add Task form to save the data entered in as a Task in your local database.
-* Homepage: Refactor your homepage’s RecyclerView to display all Task entities in your database.
-* Detail Page: Ensure that the description and status of a tapped task are also displayed on the detail page, in addition to the title. (Note that you can accomplish this by passing along the entire Task entity, or by passing along only its ID in the intent.)
+## Lab 31
+Espresso Testing
+Add more Espresso UI tests to your application, if you haven’t already. Make sure you do at least these three tests:
+
+assert that important UI elements are displayed on the page
+tap on a task, and assert that the resulting activity displays the name of that task
+edit the user’s username, and assert that it says the correct thing on the homepage
 
 ### Documentation
 ![Add Task](screenshots/lab29.png)
 
 ![All Task ](screenshots/lab29-2.png)
-
-
 
 
 
@@ -77,4 +77,14 @@ Ensure that you can tap on any one of the Tasks in the RecyclerView, and it will
 ### Documentation
 ![Lab28](screenshots/lab28-img.png)
 
+## Lab 29
 
+* Task Model and Room: Following the directions provided in the Android documentation, set up Room in your application, and modify your Task class to be an Entity.
+* Add Task Form: Modify your Add Task form to save the data entered in as a Task in your local database.
+* Homepage: Refactor your homepage’s RecyclerView to display all Task entities in your database.
+* Detail Page: Ensure that the description and status of a tapped task are also displayed on the detail page, in addition to the title. (Note that you can accomplish this by passing along the entire Task entity, or by passing along only its ID in the intent.)
+
+### Documentation
+![Add Task](screenshots/lab29.png)
+
+![All Task ](screenshots/lab29-2.png)
