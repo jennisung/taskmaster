@@ -20,9 +20,13 @@ import com.jennisung.taskmaster.activities.AllTasksActivity;
 import com.jennisung.taskmaster.activities.SettingsActivity;
 import com.jennisung.taskmaster.activities.TaskDetailActivity;
 import com.jennisung.taskmaster.adapter.TaskRecyclerViewAdapter;
+import com.jennisung.taskmaster.models.TaskStatusEnum;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javax.net.ssl.SSLEngineResult;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
@@ -33,14 +37,17 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences;
     TaskRecyclerViewAdapter adapter;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        
+        // Temporary hardcode task in interim of adding AWS amplify
+        Task taskOne = new Task("Cook Dinner", "Prepare dinner", new Date(), TaskStatusEnum.IN_PROGRESS);
+        tasks.add(taskOne);
+
 
 //        setupTaskButtons();
         setupAddTaskPageButton();
@@ -59,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void updateTaskListFromDatabase() {
-        tasks.clear();
+//        tasks.clear();
         //TODO: make a DynomoDB/GraphQL call
 //        tasks.addAll(taskDataBase.taskDao().findAll());
         adapter.notifyDataSetChanged();
