@@ -3,14 +3,10 @@ package com.jennisung.taskmaster.models;
 //TODO 2-1: create a data class
 
 import java.util.Date;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity
+
 public class Task {
 
-    @PrimaryKey(autoGenerate = true)
-    public long id;
     String title;
     String body;
 

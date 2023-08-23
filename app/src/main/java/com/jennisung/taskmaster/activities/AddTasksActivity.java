@@ -1,8 +1,8 @@
 package com.jennisung.taskmaster.activities;
 
-import static com.jennisung.taskmaster.MainActivity.DATABASE_NAME;
+//import static com.jennisung.taskmaster.MainActivity.DATABASE_NAME;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
+//import androidx.room.Room;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,26 +11,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jennisung.taskmaster.R;
-import com.jennisung.taskmaster.database.TaskDataBase;
 import com.jennisung.taskmaster.models.Task;
 import com.jennisung.taskmaster.models.TaskStatusEnum;
 
 import java.util.Date;
 
 public class AddTasksActivity extends AppCompatActivity {
-    TaskDataBase taskDataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tasks);
 
-        taskDataBase = Room.databaseBuilder(
-                        getApplicationContext(),
-                        TaskDataBase.class,
-                        DATABASE_NAME)
-                .allowMainThreadQueries()
-                .build();
 
         Spinner taskStatusSpinner = (Spinner) findViewById(R.id.AddTaskStatusSpinner);
 
@@ -56,8 +48,8 @@ public class AddTasksActivity extends AppCompatActivity {
                     TaskStatusEnum.fromString(taskStatusSpinner.getSelectedItem().toString())
             );
 
-
-            taskDataBase.taskDao().insertTask(taskToSave);
+            //TODO: make a DynomoDB/GraphQL call
+//           taskDataBase.taskDao().insertTask(taskToSave);
 
             Toast.makeText(AddTasksActivity.this, "Task has been Saved!!", Toast.LENGTH_SHORT).show();
         });
