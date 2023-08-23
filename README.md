@@ -1,13 +1,13 @@
 # taskmaster
 
 # Current Lab.....
-## Lab 31
-Espresso Testing
-Add more Espresso UI tests to your application, if you haven’t already. Make sure you do at least these three tests:
 
-assert that important UI elements are displayed on the page
-tap on a task, and assert that the resulting activity displays the name of that task
-edit the user’s username, and assert that it says the correct thing on the homepage
+## Lab 32
+* Tasks Are Cloudy : Using the amplify add api command, create a Task resource that replicates our existing Task schema. Update all references to the Task data to instead use AWS Amplify to access your data in DynamoDB instead of in Room.
+
+* Add Task Form: Modify your Add Task form to save the data entered in as a Task to DynamoDB.
+
+* Homepage : Refactor your homepage’s RecyclerView to display all Task entities in DynamoDB.
 
 ### Documentation
 ![Add Task](screenshots/lab29.png)
@@ -88,3 +88,11 @@ Ensure that you can tap on any one of the Tasks in the RecyclerView, and it will
 ![Add Task](screenshots/lab29.png)
 
 ![All Task ](screenshots/lab29-2.png)
+
+## Lab 31
+Espresso Testing
+Add more Espresso UI tests to your application, if you haven’t already. Make sure you do at least these three tests:
+
+assert that important UI elements are displayed on the page
+tap on a task, and assert that the resulting activity displays the name of that task
+edit the user’s username, and assert that it says the correct thing on the homepage

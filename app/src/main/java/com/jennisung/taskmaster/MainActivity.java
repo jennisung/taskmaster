@@ -1,13 +1,11 @@
 package com.jennisung.taskmaster;
 
-import com.jennisung.taskmaster.database.TaskDataBase;
 import com.jennisung.taskmaster.models.Task;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,12 +26,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
-    public static final String DATABASE_NAME = "jennisung_taskmaster_database";
+//    public static final String DATABASE_NAME = "jennisung_taskmaster_database";
     public static final String USER_INPUT_EXTRA_TAG = "taskName";
     public static final String TASK_NAME_EXTRA_TAG = "taskName";
     List<Task> tasks = new ArrayList<>();
     SharedPreferences preferences;
-    TaskDataBase taskDataBase;
     TaskRecyclerViewAdapter adapter;
 
 
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setupDataBase();
 //        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
@@ -64,19 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
     void updateTaskListFromDatabase() {
         tasks.clear();
-        tasks.addAll(taskDataBase.taskDao().findAll());
+        //TODO: make a DynomoDB/GraphQL call
+//        tasks.addAll(taskDataBase.taskDao().findAll());
         adapter.notifyDataSetChanged();
-    }
-    void setupDataBase(){
-        taskDataBase = Room.databaseBuilder(
-                        getApplicationContext(),
-                        TaskDataBase.class,
-                        DATABASE_NAME)
-                        //.fallbackToDestructiveMigration() // If Room gets confused, it tosses your database; turn this off in production!
-                        .allowMainThreadQueries()
-                        .build();
-
-        tasks = taskDataBase.taskDao().findAll();
     }
 
     void setupTaskButton(int buttonId) {
