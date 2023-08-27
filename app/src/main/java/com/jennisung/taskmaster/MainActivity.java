@@ -1,7 +1,5 @@
 package com.jennisung.taskmaster;
 
-import com.jennisung.taskmaster.models.Task;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,22 +13,21 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Task;
 import com.jennisung.taskmaster.activities.AddTasksActivity;
 import com.jennisung.taskmaster.activities.AllTasksActivity;
 import com.jennisung.taskmaster.activities.SettingsActivity;
 import com.jennisung.taskmaster.activities.TaskDetailActivity;
 import com.jennisung.taskmaster.adapter.TaskRecyclerViewAdapter;
-import com.jennisung.taskmaster.models.TaskStatusEnum;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.net.ssl.SSLEngineResult;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
-//    public static final String DATABASE_NAME = "jennisung_taskmaster_database";
+    //    public static final String DATABASE_NAME = "jennisung_taskmaster_database";
     public static final String USER_INPUT_EXTRA_TAG = "taskName";
     public static final String TASK_NAME_EXTRA_TAG = "taskName";
     List<Task> tasks = new ArrayList<>();
@@ -43,16 +40,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        
-        // Temporary hardcode task in interim of adding AWS amplify
-        Task taskOne = new Task("Cook Dinner", "Prepare dinner", new Date(), TaskStatusEnum.IN_PROGRESS);
-        tasks.add(taskOne);
 
 
 //        setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
+        updateTaskListFromDatabase();
         setupRecyclerView(tasks);
 
     }
@@ -60,17 +54,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         setupUsernameTasksTitle();
         updateTaskListFromDatabase();
     }
 
     void updateTaskListFromDatabase() {
-//        tasks.clear();
-        //TODO: make a DynomoDB/GraphQL call
-//        tasks.addAll(taskDataBase.taskDao().findAll());
-        adapter.notifyDataSetChanged();
+        Amplify.API.query(
+                ModelQuery.list(Task.class),
+                success -> {
+                    Log.i(TAG, "Read tasks successfully!");
+                    tasks.clear();
+
+                    for (Task databaseTask : success.getData()) {
+                        tasks.add(databaseTask);
+                    }
+
+                    runOnUiThread(() -> {
+                            adapter.notifyDataSetChanged();
+                    });
+                },
+                failure -> Log.i(TAG, "Did not read tasks successfully.")
+        );
     }
+
 
     void setupTaskButton(int buttonId) {
         Button taskButton = findViewById(buttonId);
