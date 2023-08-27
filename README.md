@@ -10,9 +10,12 @@
 * Homepage : Refactor your homepage’s RecyclerView to display all Task entities in DynamoDB.
 
 ### Documentation
-![DynomoDB](screenshots/dynomoDB.png)
+
+![DynomoDB](screenshots/dynomodb-3.png)
+![DynomoDB](screenshots/dynomodb-2.png)
 
 ![Lab32](screenshots/lab32.png)
+![Lab32](screenshots/lab32-2.png)
 
 
 
