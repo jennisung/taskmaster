@@ -32,5 +32,8 @@
 <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
     <string name="Task_To_Complete">Task To Complete</string>
     <string name="AddTasksTaskDescriptionTitle">Task Description</string>
+    <string name="AddTaskTeamSpinner">Select Team</string>
+
+    <string name="select_team_prompt">Select a Team</string>
 
 </resources>

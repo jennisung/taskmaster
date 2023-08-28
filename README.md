@@ -1,6 +1,23 @@
 # taskmaster
 
 # Current Lab.....
+## Lab 33
+* Tasks Are Owned By Teams: Create a second entity for a team, which has a name and a list of tasks. Update your tasks to be owned by a team. Manually create three teams by running a mutation exactly three times in your code. (You do NOT need to allow the user to create new teams.)
+* Add Task Form: Modify your Add Task form to include either a Spinner or Radio Buttons for which team that task belongs to.
+* Settings Page: In addition to a username, allow the user to choose their team on the Settings pag
+
+### Documentation
+![DynomoDB](screenshots/dynomodbteams.png)
+
+![Lab33 add task page](screenshots/lab33.png)
+![Lab33 add task page](screenshots/lab33-2.png)
+
+### Filter Documentation for Settings
+
+![Filter](screenshots/lab33-3.png)
+![Filter](screenshots/lab33-4.png)
+
+
 
 ## Lab 32
 * Tasks Are Cloudy : Using the amplify add api command, create a Task resource that replicates our existing Task schema. Update all references to the Task data to instead use AWS Amplify to access your data in DynamoDB instead of in Room.

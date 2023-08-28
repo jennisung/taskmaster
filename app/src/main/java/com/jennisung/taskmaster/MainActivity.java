@@ -1,5 +1,7 @@
 package com.jennisung.taskmaster;
 
+import static com.jennisung.taskmaster.activities.SettingsActivity.TEAM_TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,9 +15,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
+import com.amplifyframework.datastore.generated.model.Team;
 import com.jennisung.taskmaster.activities.AddTasksActivity;
 import com.jennisung.taskmaster.activities.AllTasksActivity;
 import com.jennisung.taskmaster.activities.SettingsActivity;
@@ -42,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 
+//        createTeamInstances();
 //        setupTaskButtons();
+
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
@@ -56,7 +62,39 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         setupUsernameTasksTitle();
         updateTaskListFromDatabase();
+
+
     }
+
+    void createTeamInstances() {
+        Team team1 = Team.builder()
+                .name("Team One")
+                        .build();
+        Amplify.API.mutate(
+                ModelMutation.create(team1),
+                successResponse -> Log.i(TAG, "MainActivity.createTeamInstances(): made a contact successfully"),
+                failureResponse -> Log.i(TAG, "MainActivity.createContactInstances(): contact failed with this response: " + failureResponse)
+        );
+
+        Team team2 = Team.builder()
+                .name("Team Two")
+                .build();
+        Amplify.API.mutate(
+                ModelMutation.create(team2),
+                successResponse -> Log.i(TAG, "MainActivity.createTeamInstances(): made a contact successfully"),
+                failureResponse -> Log.i(TAG, "MainActivity.createContactInstances(): contact failed with this response: " + failureResponse)
+        );
+
+        Team team3 = Team.builder()
+                .name("Team Three")
+                .build();
+        Amplify.API.mutate(
+                ModelMutation.create(team3),
+                successResponse -> Log.i(TAG, "MainActivity.createTeamInstances(): made a contact successfully"),
+                failureResponse -> Log.i(TAG, "MainActivity.createContactInstances(): contact failed with this response: " + failureResponse)
+        );
+    }
+
 
     void updateTaskListFromDatabase() {
         Amplify.API.query(
@@ -65,12 +103,18 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, "Read tasks successfully!");
                     tasks.clear();
 
+                    String selectedTeamName = preferences.getString(SettingsActivity.TEAM_TAG, null);
+                    Log.i(TAG, "Selected Team Name: " + selectedTeamName);
+
                     for (Task databaseTask : success.getData()) {
-                        tasks.add(databaseTask);
+                        Team taskTeam = databaseTask.getTeam();
+                        if (selectedTeamName == null || (taskTeam != null && taskTeam.getName().equals(selectedTeamName))) {
+                            tasks.add(databaseTask);
+                        }
                     }
 
                     runOnUiThread(() -> {
-                            adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                     });
                 },
                 failure -> Log.i(TAG, "Did not read tasks successfully.")
@@ -114,27 +158,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         void setupRecyclerView(List<Task> tasks){
-        // TODO: Step 1-2 Grab the recyclerview
         RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
 
-
-        // TODO: Step 1-3 set the layoutmanager for the recycler view to the linear layout
         RecyclerView.LayoutManager taskLayoutManager = new LinearLayoutManager(this);
         taskRecyclerView.setLayoutManager(taskLayoutManager);
-
-        // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
-        // TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
-        //TODO: step 2-3 hand data items from main activity to our recyclerview adapter
-        //TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(taskList, this);
-
-        //TODO step 3-2 hand in activity context to the adapter
-         adapter = new TaskRecyclerViewAdapter(tasks, this);
+        adapter = new TaskRecyclerViewAdapter(tasks, this);
 
         taskRecyclerView.setAdapter(adapter);
     }
 
     private void setupUsernameTasksTitle() {
         String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
+
+        String teamName = preferences.getString(TEAM_TAG, "All");
 
         Log.d("MainActivity", "Username retrieved: " + username);
 
@@ -144,6 +180,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
 }
 
+
+
+//    void setupRecyclerView(List<Task> tasks){
+//        // TODO: Step 1-2 Grab the recyclerview
+//        RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
+//
+//
+//        // TODO: Step 1-3 set the layoutmanager for the recycler view to the linear layout
+//        RecyclerView.LayoutManager taskLayoutManager = new LinearLayoutManager(this);
+//        taskRecyclerView.setLayoutManager(taskLayoutManager);
+//
+//        // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
+//        // TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
+//        //TODO: step 2-3 hand data items from main activity to our recyclerview adapter
+//        //TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(taskList, this);
+//
+//        //TODO step 3-2 hand in activity context to the adapter
+//        adapter = new TaskRecyclerViewAdapter(tasks, this);
+//
+//        taskRecyclerView.setAdapter(adapter);
+//    }
+
+
+
+//    void updateTaskListFromDatabase() {
+//        Amplify.API.query(
+//                ModelQuery.list(Task.class),
+//                success -> {
+//                    Log.i(TAG, "Read tasks successfully!");
+//                    tasks.clear();
+//
+//                    String selectedTeamName = preferences.getString(TEAM_TAG, null);
+//
+//                    for (Task databaseTask : success.getData()) {
+//                        if (selectedTeamName == null || databaseTask.getTeam().getName().equals(selectedTeamName)) {
+//                            tasks.add(databaseTask);
+//                        }
+//
+//                    }
+//
+//                    runOnUiThread(() -> {
+//                        adapter.notifyDataSetChanged();
+//                    });
+//                },
+//                failure -> Log.i(TAG, "Did not read tasks successfully.")
+//        );
+//    }
