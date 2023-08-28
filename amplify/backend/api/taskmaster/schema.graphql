@@ -8,12 +8,16 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 #  description: String
 #}
 
+# Many in the one-to-many mapping
 type Task @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
   body: String!
   dateCreated: AWSDateTime
   status: TaskStatusEnum
+
+  teamId: ID! @index(name: "byTeam", sortKeyFields: ["title"])
+  team: Team @belongsTo(fields: ["teamId"])
 }
 
 enum TaskStatusEnum {
@@ -22,4 +26,11 @@ enum TaskStatusEnum {
   ASSIGNED
   IN_PROGRESS
 
+}
+
+# One in our on-to-many mapping
+type Team @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  tasks: [Task] @hasMany(indexName: "byTeam", fields: ["id"])
 }

@@ -41,12 +41,23 @@
         android:id="@+id/SettingsAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:text="@string/SettingsAddButton"
         android:textSize="20sp"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SettingsTeamSpinner" />
+
+    <Spinner
+        android:id="@+id/SettingsTeamSpinner"
+        android:layout_width="210dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SettingsUsernameInputForm" />
 </androidx.constraintlayout.widget.ConstraintLayout>
