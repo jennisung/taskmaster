@@ -1,7 +1,16 @@
 # taskmaster
 
 # Current Lab.....
-##
+## Lab 34
+* Build Final AAB: Build a signed AAB for your application. Include that AAB in your GitHub repo.
+
+* Deployment to Play Store: Note that becoming a developer with Google requires a one-time fee of $25. This is almost certainly worth it for the resume boost alone, but you may also partner up with a classmate to go through these steps. In the Google Play Console, follow the checklist for uploading your app to the Play Store. Include any notes about this process in your README, as well as the link to where your application will one day live.
+
+### Documentation
+![GooglePlay Store](screenshots/googleplay.png)
+
+![GooglePlay Store](screenshots/playstore.png)
+
 
 ## Lab 33
 * Tasks Are Owned By Teams: Create a second entity for a team, which has a name and a list of tasks. Update your tasks to be owned by a team. Manually create three teams by running a mutation exactly three times in your code. (You do NOT need to allow the user to create new teams.)
