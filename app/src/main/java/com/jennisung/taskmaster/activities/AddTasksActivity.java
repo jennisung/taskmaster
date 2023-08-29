@@ -34,7 +34,6 @@ public class AddTasksActivity extends AppCompatActivity {
     private EditText taskTitleEditText;
     private EditText taskDescriptionEditText;
     private Spinner taskStatusSpinner;
-
     private Spinner taskTeamSpinner;
 
 
