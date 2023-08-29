@@ -122,14 +122,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void setupTaskButton(int buttonId) {
-        Button taskButton = findViewById(buttonId);
-        taskButton.setOnClickListener(v -> {
-            Intent taskDetailIntent = new Intent(MainActivity.this, TaskDetailActivity.class);
-            taskDetailIntent.putExtra(USER_INPUT_EXTRA_TAG, taskButton.getText().toString());
-            startActivity(taskDetailIntent);
-        });
-    }
+//    void setupTaskButton(int buttonId) {
+//        Button taskButton = findViewById(buttonId);
+//        taskButton.setOnClickListener(v -> {
+//            Intent taskDetailIntent = new Intent(MainActivity.this, TaskDetailActivity.class);
+//            taskDetailIntent.putExtra(USER_INPUT_EXTRA_TAG, taskButton.getText().toString());
+//            startActivity(taskDetailIntent);
+//        });
+//    }
 
     void setupAddTaskPageButton() {
         Button addTaskButton = findViewById(R.id.MainActivityAddTaskButton);
@@ -184,48 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//    void setupRecyclerView(List<Task> tasks){
-//        // TODO: Step 1-2 Grab the recyclerview
-//        RecyclerView taskRecyclerView = (RecyclerView) findViewById(R.id.MainActivityTaskRecyclerView);
-//
-//
-//        // TODO: Step 1-3 set the layoutmanager for the recycler view to the linear layout
-//        RecyclerView.LayoutManager taskLayoutManager = new LinearLayoutManager(this);
-//        taskRecyclerView.setLayoutManager(taskLayoutManager);
-//
-//        // TODO: step 1-5 create and attack recyclerview.adapter to recycler view
-//        // TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter();
-//        //TODO: step 2-3 hand data items from main activity to our recyclerview adapter
-//        //TaskRecyclerViewAdapter adapter = new TaskRecyclerViewAdapter(taskList, this);
-//
-//        //TODO step 3-2 hand in activity context to the adapter
-//        adapter = new TaskRecyclerViewAdapter(tasks, this);
-//
-//        taskRecyclerView.setAdapter(adapter);
-//    }
 
 
 
-//    void updateTaskListFromDatabase() {
-//        Amplify.API.query(
-//                ModelQuery.list(Task.class),
-//                success -> {
-//                    Log.i(TAG, "Read tasks successfully!");
-//                    tasks.clear();
-//
-//                    String selectedTeamName = preferences.getString(TEAM_TAG, null);
-//
-//                    for (Task databaseTask : success.getData()) {
-//                        if (selectedTeamName == null || databaseTask.getTeam().getName().equals(selectedTeamName)) {
-//                            tasks.add(databaseTask);
-//                        }
-//
-//                    }
-//
-//                    runOnUiThread(() -> {
-//                        adapter.notifyDataSetChanged();
-//                    });
-//                },
-//                failure -> Log.i(TAG, "Did not read tasks successfully.")
-//        );
-//    }
+
