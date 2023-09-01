@@ -11,7 +11,9 @@
         android:id="@+id/SettingsHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/SettingsHeading"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,27 +23,30 @@
 
     <EditText
         android:id="@+id/SettingsUsernameInputForm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/settingsactivity_username"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="@string/SettingsUserNameInputText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SettingsHeading"
-        android:autofillHints=""
-        tools:ignore="LabelFor"
-        android:imeOptions="actionDone"
-        />
+        tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/SettingsAddButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/SettingsAddButton"
         android:textSize="20sp"
         app:cornerRadius="8dp"
@@ -52,12 +57,60 @@
 
     <Spinner
         android:id="@+id/SettingsTeamSpinner"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SettingsUsernameInputForm" />
+
+    <Button
+        android:id="@+id/SettingsActivityLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/settings_login_button"
+        android:textSize="20sp"
+        app:cornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SettingsActivitySignUpButton" />
+
+    <Button
+        android:id="@+id/SettingsActivitySignUpButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/settingsactivity_signup_button"
+        android:textSize="20sp"
+        app:cornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SettingsAddButton" />
+
+    <Button
+        android:id="@+id/SettingsActivityLogoutButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/settingsactivity_logout_button"
+        android:textSize="20sp"
+        app:cornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SettingsActivityLoginButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

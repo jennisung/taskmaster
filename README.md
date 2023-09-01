@@ -1,6 +1,18 @@
 # taskmaster
 
 # Current Lab.....
+
+## Lab 36
+* User Login: Add Cognito to your Amplify setup. Add in user login and sign up flows to your application, using Cognito’s pre-built UI as appropriate. Display the logged-in user’s username (or nickname) somewhere relevant in your app.
+* User Logout: Allow users to log out of your application.
+* Documentation: Update your daily change log with today’s changes.
+
+### Documentation
+![Settings](screenshots/settingslogin.png)
+![Signup](screenshots/signup.png)
+![Signup](screenshots/verify.png)
+
+
 ## Lab 34
 * Build Final AAB: Build a signed AAB for your application. Include that AAB in your GitHub repo.
 
@@ -20,7 +32,7 @@
 ### Documentation
 ![DynomoDB](screenshots/dynomodbteams.png)
 
-![Lab33 add task page](screenshots/lab33.png)
+[//]: # (![Lab33 add task page]&#40;screenshots/lab33.png&#41;)
 ![Lab33 add task page](screenshots/lab33-2.png)
 
 ### Filter Documentation for Settings
@@ -64,7 +76,7 @@ The all tasks page should just be an image with a back button; it needs no funct
 
 ![Add Task Page](screenshots/AddTasks.png)
 
-![All Task Page](screenshots/AllTasks.png)
+[//]: # (![All Task Page]&#40;screenshots/AllTasks.png&#41;)
 
 ## Lab27
 

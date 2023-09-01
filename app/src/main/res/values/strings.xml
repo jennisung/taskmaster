@@ -7,7 +7,7 @@
     <string name="Task_Title_Text">Task Title</string>
     <string name="TaskTitleInputForm">My Task</string>
     <string name="TaskDescriptionText">Task Description</string>
-<!--    <string name="Add_Tasks_TaskDescription_Title">Task Description\n</string>-->
+    <!--    <string name="Add_Tasks_TaskDescription_Title">Task Description\n</string>-->
     <string name="AddTasksTaskDescriptionInputForm">Do Something</string>
     <string name="AddTasksButton">ADD TASK</string>
     <string name="AddTaskDoSomethingTextForInput" />
@@ -23,17 +23,36 @@
     <string name="TaskDetailPageHeading">Task Detail</string>
     <string name="textview">TextView</string>
     <string name="TaskDetailPageText">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "</string>
-<!--    <string name="ButtonTask1">Task One</string>-->
-<!--    <string name="ButtonTask2">Task Two</string>-->
-<!--    <string name="ButtonTask3">Task Three</string>-->
+    <!--    <string name="ButtonTask1">Task One</string>-->
+    <!--    <string name="ButtonTask2">Task Two</string>-->
+    <!--    <string name="ButtonTask3">Task Three</string>-->
     <string name="todo">TODO</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-<!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
     <string name="Task_To_Complete">Task To Complete</string>
     <string name="AddTasksTaskDescriptionTitle">Task Description</string>
     <string name="AddTaskTeamSpinner">Select Team</string>
 
     <string name="select_team_prompt">Select a Team</string>
+    <string name="sign_up">Sign-up</string>
+    <string name="email">Email</string>
+    <string name="email_Text">Email</string>
+    <string name="Email_text">Email</string>
+    <string name="password">Password</string>
+    <string name="signup_button">Submit</string>
+    <string name="username">Username</string>
+    <string name="verify_account">Verify Account</string>
+    <string name="verify_activity_email">Email</string>
+    <string name="verification_number">Verification Number</string>
+    <string name="verification_button">Submit</string>
+    <string name="login_title">Login</string>
+    <string name="loginactivity_email">Email</string>
+    <string name="loginactivity_password">Password</string>
+    <string name="loginactivity_button">Submit</string>
+    <string name="settingsactivity_username">Username</string>
+    <string name="settings_login_button">Login</string>
+    <string name="settingsactivity_signup_button">Signup</string>
+    <string name="settingsactivity_logout_button">Logout</string>
 
 </resources>

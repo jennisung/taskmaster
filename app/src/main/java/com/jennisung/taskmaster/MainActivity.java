@@ -17,6 +17,11 @@ import android.widget.TextView;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.AuthUserAttribute;
+import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.cognito.result.AWSCognitoAuthSignOutResult;
+import com.amplifyframework.auth.options.AuthSignOutOptions;
+import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
 import com.amplifyframework.datastore.generated.model.Team;
@@ -46,9 +51,8 @@ public class MainActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 
-//        createTeamInstances();
-//        setupTaskButtons();
-
+        // createTeamInstances();
+        // setupTaskButtons();
         setupAddTaskPageButton();
         setupAllTasksPageButton();
         setupSettingsPageButton();
@@ -122,15 +126,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    void setupTaskButton(int buttonId) {
-//        Button taskButton = findViewById(buttonId);
-//        taskButton.setOnClickListener(v -> {
-//            Intent taskDetailIntent = new Intent(MainActivity.this, TaskDetailActivity.class);
-//            taskDetailIntent.putExtra(USER_INPUT_EXTRA_TAG, taskButton.getText().toString());
-//            startActivity(taskDetailIntent);
-//        });
-//    }
-
     void setupAddTaskPageButton() {
         Button addTaskButton = findViewById(R.id.MainActivityAddTaskButton);
         addTaskButton.setOnClickListener(v -> {
@@ -167,10 +162,22 @@ public class MainActivity extends AppCompatActivity {
         taskRecyclerView.setAdapter(adapter);
     }
 
-    private void setupUsernameTasksTitle() {
-        String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
+//    private void setupUsernameTasksTitle() {
+//        String username = preferences.getString(SettingsActivity.USERNAME_TAG, "");
+//
+//        String teamName = preferences.getString(TEAM_TAG, "All");
+//
+//        Log.d("MainActivity", "Username retrieved: " + username);
+//
+//        if (!username.isEmpty()) {
+//            String myTasksTitleTextView = username + "'s Tasks";
+//            ((TextView) findViewById(R.id.usernameTasksTextView)).setText(myTasksTitleTextView);
+//        }
+//    }
 
-        String teamName = preferences.getString(TEAM_TAG, "All");
+    private void setupUsernameTasksTitle() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = preferences.getString("username", "");
 
         Log.d("MainActivity", "Username retrieved: " + username);
 
@@ -180,10 +187,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
 }
-
-
-
 
 
 
