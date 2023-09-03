@@ -38,24 +38,6 @@ public class SignUpActivity extends AppCompatActivity {
         setupSubmitButton();
     }
 
-//    void setupSubmitButton() {
-//        submitButton.setOnClickListener(v -> {
-//            Amplify.Auth.signUp(
-//                    emailEditText.getText().toString(),
-//                    passwordEditText.getText().toString(),
-//                    AuthSignUpOptions.builder()
-//                            .userAttribute(AuthUserAttributeKey.email(), emailEditText.getText().toString())
-//                            .userAttribute(AuthUserAttributeKey.nickname(), nicknameEditText.getText().toString())
-//                            .build(),
-//                    successResponse -> {
-//                        Log.i(TAG, "Signup succeeded: " + successResponse.toString());
-//                        Intent goToVerifyActivity = new Intent(SignUpActivity.this, VerificationActivity.class);
-//                        startActivity(goToVerifyActivity);
-//                    },
-//                    failureResponse -> Log.i(TAG, "Signup failed with username: " + " with this message: " + failureResponse.toString())
-//            );
-//        });
-//    }
 void setupSubmitButton() {
     submitButton.setOnClickListener(v -> {
         String email = emailEditText.getText().toString();
@@ -88,20 +70,3 @@ void setupSubmitButton() {
 
 }
 
-//    void setupSubmitButton() {
-//        submitButton.setOnClickListener(v -> {
-//            Amplify.Auth.signUp(emailEditText.getText().toString(),
-//                    passwordEditText.getText().toString(),
-//                    nicknameEditText.getText().toString(),
-//                    AuthSignUpOptions.builder()
-//                            .userAttribute(AuthUserAttributeKey.email(), emailEditText.getText().toString())
-//                            .userAttribute(AuthUserAttributeKey.nickname(), nicknameEditText.getText().toString())
-//                            .build(),
-//                    successResponse -> {
-//                        Log.i(TAG, "Signup succeeded: " + successResponse.toString());
-//                        Intent goToVerifyActivity = new Intent(SignUpActivity.this, VerificationActivity.class);
-//                        startActivity(goToVerifyActivity);
-//                    },
-//                    failureResponse -> Log.i(TAG, "Signup failed with username: " + " with this message: " + failureResponse.toString())
-//            );
-//        });
