@@ -65,17 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-//    void displayButtons() {
-//        if (authUser == null) {
-//            logoutButton.setVisibility(View.INVISIBLE);
-//            loginButton.setVisibility(View.VISIBLE);
-//            signUpButton.setVisibility(View.VISIBLE);
-//        } else {
-//            logoutButton.setVisibility(View.VISIBLE);
-//            loginButton.setVisibility(View.INVISIBLE);
-//            signUpButton.setVisibility(View.INVISIBLE);
-//        }
-//    }
+
 
     private void fetchTeamsFromDynamoDB() {
         Amplify.API.query(

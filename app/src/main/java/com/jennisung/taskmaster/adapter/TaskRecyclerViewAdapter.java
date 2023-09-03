@@ -63,9 +63,9 @@ public class TaskRecyclerViewAdapter extends RecyclerView.Adapter<TaskRecyclerVi
         View taskViewHolder = holder.itemView;
         taskViewHolder.setOnClickListener(v -> {
             Intent goToTaskInfoIntent = new Intent(callingActivity, TaskDetailActivity.class);
-
             goToTaskInfoIntent.putExtra(MainActivity.TASK_NAME_EXTRA_TAG, tasks.get(position).getTitle());
 
+            goToTaskInfoIntent.putExtra(MainActivity.TASK_ID_EXTRA_TAG, tasks.get(position).getId());
             callingActivity.startActivity(goToTaskInfoIntent);
         });
     }

@@ -54,12 +54,3 @@ public class LoginActivity extends AppCompatActivity {
     }
 }
 
-//        Amplify.Auth.signIn("",
-//                "password",
-//
-//                    success -> {
-//                    Log.i(TAG, "login success: " + success.toString());
-//                 },
-//                    failure -> {
-//                    Log.i(TAG, "login failed: " + failure.toString());
-////                 });
